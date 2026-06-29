@@ -1,0 +1,54 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ms-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: asignaturas-service
+          uri: lb://MS-ASIGNATURAS
+          predicates:
+            - Path=/ms-asignaturas/**
+          filters:
+            - StripPrefix=1
+
+        - id: calificaciones-service
+          uri: lb://MS-CALIFICACIONES
+          predicates:
+            - Path=/ms-calificaciones/**
+          filters:
+            - StripPrefix=1
+
+        - id: estudiantes-service
+          uri: lb://MS-ESTUDIANTES
+          predicates:
+            - Path=/ms-estudiantes/**
+          filters:
+            - StripPrefix=1
+
+        - id: finanzas-service
+          uri: lb://MS-FINANZAS
+          predicates:
+            - Path=/ms-finanzas/**
+          filters:
+            - StripPrefix=1
+
+        - id: seguridad-service
+          uri: lb://MS-SEGURIDAD
+          predicates:
+            - Path=/ms-seguridad/**
+          filters:
+            - StripPrefix=1
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

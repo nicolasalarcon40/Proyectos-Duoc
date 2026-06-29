@@ -1,4 +1,4 @@
-package ms_gateway;
+package com.colegio.ms_gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

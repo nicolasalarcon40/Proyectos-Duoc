@@ -1,4 +1,4 @@
-package ms_gateway;
+package com.colegio.ms_gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
